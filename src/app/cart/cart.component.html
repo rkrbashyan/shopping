@@ -1,0 +1,20 @@
+<div *ngIf="cartItems.length !==0">
+<table>
+  <tr>
+    <th>Name</th>
+    <th class="right">Qty</th>
+    <th class="right">Price</th>
+  </tr>
+  <tr *ngFor="let item of cartItems">
+    <td>{{ item.name }}</td>
+    <td class="right">{{ item.qty }}</td>
+    <td class="right">{{ item.price | currency:'USD':true:'.2-2' }} </td> 
+  </tr>
+  <tr>
+    <td></td>
+    <td class="right">Total:</td>
+    <td class="right">{{ total | currency:'USD':true:'.2-2'}}</td>
+  </tr>
+</table>
+</div>
+

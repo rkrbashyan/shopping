@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+
+    <form [formGroup]="searchForm" novalidate>
+      <div class="col-md-4">
+
+        <label for="dateFrom">Issue date from:</label>
+            <my-date-picker 
+              name="dateFrom" 
+              [options]="myDatePickerOptions"
+              formControlName="dateFrom"></my-date-picker>
+        
+        <label for="priceFrom">Price from:</label>
+        <input type="number" 
+               min="1"
+               style="text-align:right;"
+               name="priceFrom"
+               formControlName="priceFrom" 
+               class="form-control">
+          <span 
+                class="help-block" 
+                [ngStyle]="{ 'color': 'red'}"
+                *ngIf="priceFromErrorMsg !==''"
+           >
+           {{priceFromErrorMsg}}
+           </span>
+
+      </div>
+      <div class="col-md-4">
+          <label for="dateTo">Issue date to:</label>
+          <my-date-picker 
+            name="dateTo" 
+            [options]="myDatePickerOptions"
+            formControlName="dateTo"></my-date-picker>
+        
+        <label for="priceTo">Price to:</label>
+        <input type="number" 
+               style="text-align:right;"
+               name="priceTo"
+               formControlName="priceTo" 
+               class="form-control">
+          <span 
+                class="help-block" 
+                [ngStyle]="{ 'color': 'red'}"
+                *ngIf="priceToErrorMsg !==''"
+           >
+           {{priceToErrorMsg}}
+           </span>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="color">Color:</label>
+          <select class="form-control" name="color" formControlName="color">
+            <option>All Colors</option>
+            <option>Red</option>
+            <option>White</option>
+            <option>Black</option>
+            <option>Blue</option>
+            <option>Yellow</option>
+            <option>Green</option>
+          </select>
+        </div>
+        <div class="checkbox">
+          <label for="inStock"> 
+            <input
+              type="checkbox"
+              name="inStock"
+              formControlName="inStock">
+          In stock only  </label>
+        </div>
+     
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+<br><br>
+<hr>
+  
+
+<router-outlet></router-outlet>
+
+
+
+

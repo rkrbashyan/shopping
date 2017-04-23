@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offest-2">
+      <form [formGroup]="signinForm" (ngSubmit)="onSignIn()"> 
+        <div class="form-group">
+          <span 
+                class="help-block" 
+                [ngStyle]="{ 'color': 'red'}"
+                *ngIf="loginErrorMessage !==''"
+           >
+           {{loginErrorMessage}}
+           </span>
+          <label for="email">Mail</label>
+          <input type="email" 
+                id="email"
+                formControlName="email" 
+                class="form-control">
+           <span 
+                class="help-block" 
+                [ngStyle]="{ 'color': 'red'}"
+                *ngIf="emailErrorMsg !==''"
+           >
+           {{emailErrorMsg}}
+           </span>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" 
+                 id="password" 
+                 formControlName="password"
+                 class="form-control">
+           <span 
+                class="help-block" 
+                [ngStyle]="{ 'color': 'red'}"
+                *ngIf="passwordErrorMsg !==''"
+           >
+           {{passwordErrorMsg}}
+           </span>
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+      </form>
+    </div>
+  </div>
+</div>

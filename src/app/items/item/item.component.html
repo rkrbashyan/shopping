@@ -1,0 +1,25 @@
+<div class="item-col">
+  <img [src]=item.image alt="{{ item.name }}" style="max-height: 100px;">
+  <div class="item-col" [ngStyle]="{'width': '250px'}">
+    <p class="list-group-item-text">Name: {{ item.name }}</p>
+    <br>
+    <p class="list-group-item-text">Color: {{ item.color }}</p>
+  </div>
+  <div class="item-col" [ngStyle]="{'width': '250px'}">
+    <p class="list-group-item-text">Issue date: {{ item.issueDate }}</p>
+    <br>
+    <label for="inStock"> 
+    <input type="checkbox" name="inStock" disabled="true" [checked]="item.inStock !== false ">In stock</label>
+  </div>
+  <div class="item-col" [ngStyle]="{'width': '250px'}">
+    <p class="list-group-item-text">Price: {{item.price | currency:'USD':true:'.2-2'}}</p>
+    <br>
+    <p-rating [(ngModel)]="item.rating" readonly="true" [cancel]="false"></p-rating>
+    <!--    <div class="rating-bar">
+      <div class="rating-bar-element" [ngStyle]="{'width': 100*item.rating/5 +'%' }"></div>
+    </div>-->
+  </div>
+  <div class="item-col">
+    <button class="btn btn-primary" (click)="onOrder()">Order</button>
+  </div>
+</div>
